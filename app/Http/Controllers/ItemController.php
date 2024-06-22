@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Item;
 
 class ItemController extends Controller
@@ -11,6 +12,14 @@ class ItemController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+    {
+        return Item::where('active', true)->orderBy('name', 'ASC')->get();
+    }
+
+    /**
+     * Display the whole listing of the resource.
+     */
+    public function indexAll()
     {
         return Item::orderBy('name', 'ASC')->get();
     }
@@ -28,11 +37,25 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $newItem = new Item;
-        $newItem->name = $request->item["name"];
-        $newItem->save();
 
-        return $newItem;
+        $existingItem = Item::whereRaw( 'LOWER(name)=?', [$request->item["name"]] )->first();
+
+        if($existingItem){
+
+            $existingItem->active = true;
+            $existingItem->save();
+
+        }else{
+
+            $newItem = new Item;
+            $newItem->name = $request->item["name"];
+            $newItem->save();
+
+        }
+
+
+        return $this->index();
+
     }
 
     /**
@@ -62,13 +85,10 @@ class ItemController extends Controller
 
             $existingItem->active = $existingItem->active ? false : true;
             $existingItem->save();
-            return $existingItem;
 
         }
 
-        return response()->json([
-            'message' => 'Not found.'
-        ], 404);
+        return $this->index();
 
     }
 

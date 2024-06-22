@@ -10,6 +10,9 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/items', [ItemController::class, 'index']);
 
+Route::get('/items/all', [ItemController::class, 'indexAll']);
+
+
 Route::prefix('/item')->group( function() {
 
     Route::post('/store', [ItemController::class, 'store']);
