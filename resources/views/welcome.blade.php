@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>EinkaufApp</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,10 +16,7 @@
             }
         </style>
     </head>
-    <body>
-        <div id="app">
-            <home-component></home-component>
-        </div>
+    <body id="app">
         @vite('resources/js/app.js')
     </body>
 </html>

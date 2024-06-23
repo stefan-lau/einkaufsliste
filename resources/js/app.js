@@ -1,9 +1,7 @@
 import './bootstrap';
+import axios from "axios";
 import { createApp } from 'vue/dist/vue.esm-bundler.js';
-import Home from './components/Home.vue';
+import App from './App.vue';
 
-const app = createApp({});
-
-app.component('home-component', Home);
-
+const app = createApp(App);
 app.mount("#app");
