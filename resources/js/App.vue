@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ this.headline }}</h1>
+    <h1 v-html="this.headline"></h1>
 
         <div
             v-for="grocerie in this.grocerieList"
@@ -12,7 +12,7 @@
                 <button
                     @click="removeFromGrocerieList(grocerie.id)"
                 >
-                    &#10060; gekauft
+                    &#9989;
                 </button>
             </div>
         </div>
@@ -28,7 +28,7 @@ export default {
     },
     data(){
         return {
-            headline: "Einkäufe ToDo",
+            headline: "&#128722; Einkäufe &#128717;",
             grocerieList: undefined,
         }
     },
@@ -62,6 +62,7 @@ export default {
 }
 body{
     padding:25px 50px;
+    padding-bottom:150px;
 }
 h1{
     padding-bottom:25px;
@@ -78,16 +79,18 @@ h1{
     background:#f0f0f0;
 
     button{
-        padding:12px;
+        padding:3px;
         margin-top:25px;
-        font-size:16px;
+        font-size:25px;
         cursor:pointer;
+        background:#7cb342;
+        border:0px;
     }
 }
 .grocerie_list_item_active{
     font-size:18px;
     font-weight:bold;
-    border:1px solid #FF0000;
+    border:2px solid #7cb342;
     background:#fff;
 }
 </style>
