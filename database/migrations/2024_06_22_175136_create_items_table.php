@@ -17,6 +17,11 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => 'ItemSeeder',
+            '--force' => true // <--- add this line for production
+        ]);
     }
 
     /**
