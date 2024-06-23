@@ -12,7 +12,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return Item::where('active', true)->orderBy('name', 'ASC')->get();
+        return Item::select('id','name','active')
+                        ->where('active', true)
+                            ->orderBy('name', 'ASC')
+                                ->get();
     }
 
     /**

@@ -19,12 +19,13 @@ class ItemSeeder extends Seeder
         $fp = fopen($inputFile, "r");
         while(!feof($fp)){
 
-            $line=trim(fgets($fp, 1024));
+            $line=explode(";", trim(fgets($fp, 1024)));
 
-            if($line != ""){
+            if($line[0] != ""){
 
                 $newItem = new Item;
-                $newItem->name = $line;
+                $newItem->name = $line[0];
+                $newItem->active = $line[1];
                 $newItem->save();
 
             }
