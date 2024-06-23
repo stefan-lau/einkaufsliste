@@ -17,6 +17,11 @@
             </div>
         </div>
 
+        <div class="grocerie_new">
+            <input type="text" placeholder="Hinzufügen" v-model="newGrocerie">
+            <button class="add" @click="addToGrocerieList()">&raquo;</button>
+        </div>
+
 </template>
 
 <script>
@@ -30,6 +35,7 @@ export default {
         return {
             headline: "&#128722; Einkäufe &#128717;",
             grocerieList: undefined,
+            newGrocerie: undefined,
         }
     },
     methods: {
@@ -47,6 +53,23 @@ export default {
                 this.grocerieList = response.data;
             });
         },
+        addToGrocerieList(){
+            if(this.newGrocerie){
+                let jsonInput='{"item":{"name":"' + this.newGrocerie + '"}}';
+
+                axios
+                .post('/api/item/store', jsonInput, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then((response) => {
+                    this.grocerieList = response.data;
+                });
+
+                this.newGrocerie=undefined;
+            }
+        }
     },
     created(){
         this.getGrocerieList();
@@ -92,5 +115,31 @@ h1{
     font-weight:bold;
     border:2px solid #7cb342;
     background:#fff;
+}
+.grocerie_new{
+    width:100vw;
+    padding-top:40px;
+    min-height:100px;
+    background:#444;
+    position:fixed;
+    left:0;
+    bottom:0;
+    opacity: 0.89;
+    -webkit-box-shadow: 0px 0px 27px 1px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 27px 1px rgba(0,0,0,0.4);
+
+    input{
+        display:inline;
+        font-size:19px;
+        width:50%;
+        height:50px;
+    }
+
+    button{
+        display:inline;
+        font-size:19px;
+        width:15%;
+        height:54px;
+    }
 }
 </style>
