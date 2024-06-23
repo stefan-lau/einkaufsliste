@@ -14,6 +14,7 @@
 
     b{
         color:#000;
+        font-weight:normal;
     }
 
  }
