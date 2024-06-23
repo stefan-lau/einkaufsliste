@@ -78,15 +78,6 @@ export default {
 </script>
 
 <style lang="scss">
-*{
-    margin:0;
-    padding:0;
-    text-align:center;
-}
-body{
-    padding:25px 50px;
-    padding-bottom:150px;
-}
 h1{
     padding-bottom:25px;
     border-bottom:1px solid #000;
@@ -142,4 +133,5 @@ h1{
         height:54px;
     }
 }
+
 </style>
