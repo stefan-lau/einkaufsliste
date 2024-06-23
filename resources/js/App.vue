@@ -119,7 +119,7 @@ h1{
     -webkit-box-shadow: 0px 0px 27px 1px rgba(0,0,0,0.4);
     box-shadow: 0px 0px 27px 1px rgba(0,0,0,0.4);
 
-    input{
+    input[type=text]{
         display:inline;
         font-size:19px;
         width:50%;
