@@ -41,14 +41,14 @@ export default {
     methods: {
         getGrocerieList(){
             axios
-            .get('/api/items')
+            .get('api/items')
             .then((response) => {
                 this.grocerieList = response.data;
             });
         },
         removeFromGrocerieList(id=0){
             axios
-            .put('/api/item/' + id)
+            .put('api/item/' + id)
             .then((response) => {
                 this.grocerieList = response.data;
             });
@@ -58,7 +58,7 @@ export default {
                 let jsonInput='{"item":{"name":"' + this.newGrocerie + '"}}';
 
                 axios
-                .post('/api/item/store', jsonInput, {
+                .post('api/item/store', jsonInput, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
