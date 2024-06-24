@@ -15,7 +15,7 @@ class ItemSeeder extends Seeder
     public function run(): void
     {
         $file = "ItemsSeederList.csv";
-        $inputFile = storage_path('app/' . $file);
+        $inputFile = storage_path( $file );
         $fp = fopen($inputFile, "r");
         while(!feof($fp)){
 
