@@ -8,7 +8,7 @@ RUN git clone https://github.com/sw-ffm/einkaufsliste.git /var/www/html/. && cho
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php && mv composer.phar /usr/local/bin/composer && rm composer-setup.php
 RUN apt install nodejs -y && apt install npm -y
 WORKDIR /var/www/html
-RUN cp dockerfiles/apache-conf/000-default.conf /etc/apache2/sites-available
+RUN cp /var/www/html/dockerfiles/apache-conf/000-default.conf /etc/apache2/sites-available
 RUN service apache2 restart
 RUN sudo -u www-data composer install
 RUN sudo -u www-data npm install
