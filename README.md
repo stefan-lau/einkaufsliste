@@ -7,7 +7,7 @@ Simple groceries listing app based on laravel and vuejs
 ```
 docker compose up -d
 ```
-open app in your webbrowser:
+3. Open app in your webbrowser:
 
 ```
 http://localhost
