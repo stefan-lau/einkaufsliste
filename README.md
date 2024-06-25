@@ -3,6 +3,9 @@ Simple groceries listing app based on laravel and vuejs
 
 ## Installation
 1. Clone repository 
+```
+git clone https://github.com/sw-ffm/einkaufsliste.git
+```
 2. Prepare docker image & start container: 
 ```
 docker compose up -d
