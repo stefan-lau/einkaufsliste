@@ -40,7 +40,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
 
-        $existingItem = Item::whereRaw( 'LOWER(name)=?', [$request->item["name"]] )->first();
+        $existingItem = Item::whereRaw( 'LOWER(name)=?', [strtolower($request->item["name"])] )->first();
 
         if($existingItem){
 
